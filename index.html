@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>student portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/regular.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200;0,6..12,600;1,6..12,400&display=swap');
+
+:root{
+    --yellow:#f9ca24;
+}
+
+*{
+    font-family: 'Nunito Sans', sans-serif;
+    margin:0; padding:0;
+    box-sizing: border-box; 
+    text-decoration: none;
+    outline:none; border:none;
+    text-transform: capitalize;
+    transition: all .2s linear;
+}
+
+*::selection{
+    background: var(--yellow);
+    color: #333;
+}
+
+html{
+    font-size: 62.5%;
+    overflow-x: hidden;
+}
+
+html::-webkit-scrollbar{
+    width:1.4rem;
+ }
+ html::-webkit-scrollbar-track{
+    background: #222;
+ }
+ html::-webkit-scrollbar-thumb{
+    background:var(--yellow);
+ }
+
+ body{
+    background: #111;
+    overflow-x: hidden;
+    padding-left: 35rem;
+ }
+
+ section{
+    min-height: 100vh;
+    padding:1rem;
+
+ }
+
+ .btn{
+    padding:0.7rem 3rem;
+    background:#333;
+    color: #fff;
+    cursor: pointer;
+    margin-top: 1rem;
+    font-size: 2rem;
+    border-radius:5rem ;
+ }
+
+ .btn i{
+    padding:0 .5rem;
+    font-size: 1.8rem;
+
+ }
+
+ .btn:hover{
+    background: var(--yellow);
+ }
+
+ .heading{
+    text-align: center;
+    margin: 0 6rem;
+    font-size: 4rem;
+    padding:1rem;
+    border-bottom: 0.1rem solid  #fff4;
+    color: #fff;
+
+ }
+
+ .heading span{
+    color:var(--yellow);
+
+ }
+
+header{
+    position: fixed;
+    top:0; left:0;
+    z-index: 1000;
+    height:100%;
+    width:35rem;
+    background: #1a1a1a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: column;
+    text-align: center;
+
+}
+.profile-picture{
+    height:17rem;
+    width:17rem; 
+    border-radius: 50%; 
+    object-fit: cover;
+    margin-bottom: 1rem; 
+    border:0.7rem solid var(--yellow);
+
+}
+
+.name{
+    font-size: 3.5rem;
+    color: #eee;
+}
+
+.post{
+    font-size: 2rem;
+    color: #eee;
+}
+
+nav{
+    width:100%;
+}
+nav ul{
+    list-style: none;
+    padding:1rem 3rem;
+
+}
+
+nav ul li a{
+    display: block;
+    padding:1rem;
+    margin:1.5rem 0;
+    background: #333;
+    color:#fff;
+    font-size:2rem;
+    border-radius:5rem;
+}
+
+nav ul li a:hover{
+    background: var(--yellow);
+}
+
+#menu{
+    position: fixed;
+    top:2rem; right:2rem;
+    background: #333;
+    color:#fff;
+    cursor: pointer;
+    font-size:2.5rem;
+    padding:1rem 1.5rem;
+    z-index: 1000;
+    
+}
+
+.home{
+    display: flex;
+    justify-content: center;
+    flex-flow: column;
+    padding:0 15rem;
+}
+
+.home h3{
+    font-size: 2.5rem;
+    color:#fff;
+
+}
+
+
+
+.home h1{
+    font-size:5rem;
+    color:#fff;
+    
+}
+ 
+.home h1 span{
+    color: var(--yellow);
+}
+    
+
+
+.home p{
+    font-size:2rem;
+    color:#eee;
+    padding:1rem 0;
+    
+}
+
+.about .row{
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   flex-wrap: wrap;
+   padding: 1rem 0;
+}
+.about .row .info{
+    flex:1 1 48rem;
+    padding: 2rem 1rem;
+    padding-left: 6rem;
+}
+
+.about .row .info h3{
+    font-size: 2rem;
+    color: var(--yellow);
+    padding:1rem 0 ;
+    font-weight: normal;
+
+}
+
+.about .row .info h3 span{
+    color: #eee;
+    padding:0  .5rem ;
+
+}
+
+.about .row .counter{
+    flex:1 1 48rem;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+     
+}
+
+.about .row .counter .box{
+    width:20rem;
+    background: #222;
+    text-align: center;
+    padding:2rem;
+    margin:2rem;
+}
+
+.about .row .counter .box span{
+    font-size:4rem;
+    color:var(--yellow) ;
+
+}
+
+.about .row .counter .box h3{
+    font-size:2rem;
+    color:#fff ;
+    
+}
+
+.education .box-container{
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding:1rem 0;
+    padding-left: 3rem;
+}
+
+.education .box-container .box{
+    width:27rem;
+    margin:4rem 1rem;
+    padding-left: 4rem;
+    border-left: .2rem solid #fff;
+    position: relative;
+}
+.education .box-container .box span{
+    font-size:1.3rem;
+    background: #222;
+    color: #fff;
+    border-radius:5rem;
+    padding:0.5rem 2.5rem;
+}
+
+.education .box-container .box h3{
+    font-size: 2rem;
+    color: #fff;
+    padding-top: 1.5rem;
+}
+
+.education .box-container .box p{
+    font-size: 1.4rem;
+    color: #eee;
+    padding: 1rem 0;
+}
+
+.education .box-container .box i{
+    position: absolute;
+    top:-1.5rem; left:-2.5rem;
+    height:5rem ;
+    width:5rem ;
+    border-radius: 50%;
+    line-height:5rem ;
+    text-align: center;
+    font-size:2rem;
+    color: #fff;
+    background: var(--yellow);
+
+}
+
+.contact .row{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.contact .row .content{
+    flex:1 1 30rem;
+    padding:4rem;
+    padding-bottom: 0;
+
+}
+
+.contact .row form{
+    flex:1 1 45rem;
+    padding:4rem;
+    margin: 2rem;
+    margin-bottom:4rem;
+}
+.contact .row form .box{
+    padding: 1.5rem;
+    margin:1rem 0 ;
+    background:#3333;
+    color: #fff;
+    text-transform:none;
+    font-size:1.7rem;
+    width:100%;
+}
+.contact .row form .box::placeholder{
+    text-transform: capitalize;
+}
+.contact .row form .message{
+    height:15rem;
+    resize: none;
+}
+.contact .row .content .title{
+    text-transform: uppercase;
+    color: #fff;
+    font-size:3rem;
+    padding-bottom:2rem;
+
+}
+.contact .row .content .info h3{
+    display: flex;
+    align-items:center ;
+    font-size:2rem;
+    color: #eee;
+    padding:1rem 0;
+    font-weight: normal;
+}
+.contact .row .content .info h3 i{
+    padding-right:1rem;
+    color:var(--yellow);
+
+}
+@media(max-width:1200px){
+    html{
+    font-size: 55%;
+    }
+
+    .home{
+        padding:1rem 4rem ;
+    }
+}
+
+
+@media(max-width:991px){
+    header{
+        left:-120%;
+    }
+
+    #menu{
+        display:block;
+    }
+
+    header.toggle{
+        left:0%;
+    }
+
+    body{
+        padding:0;
+    }
+    
+}
+
+@media(max-width:768px){
+   html{
+     font-size: 50%;
+   } 
+
+}
+
+
+
+
+
+
+@media(max-width:400px){
+    header{
+        width: 100vw;
+    }
+
+    .heading{
+        margin: 0 3rem;
+    }
+   
+    .about .row .counter .box{
+        width:100%;
+    }
+
+    .education .box-container .box{
+        width: 100%;
+    }
+
+    .contact .row form{
+        margin: 3rem 0;
+    }
+}
+footer {
+            text-align: center;
+            padding: 1rem 0;
+            background-color: #333;
+            color: #fff;
+        }
+
+
+
+}
+</style>
+<body>
+
+
+    <header>
+        <div class="user">
+            <img src="immm.jpg" alt="your profile picture" class="profile-picture">
+            <h3 class="name">vasundhara</h3>
+            <p class="post">front end developer</p>
+
+        </div>
+
+
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">about</a></li>
+                <li><a href="#education">education</a></li>
+                <li><a href="#contact">contact</a></li>
+                
+            </ul>
+        </nav>
+    </header>
+
+    <div id="menu" class="fas fa-bars"></div>
+
+    <section class="home" id="home">
+
+        <h3>HI THERE !</h3>
+        <h1>I'M <span>Vasundhara</span></h1>
+        <p>“I am a self-starter with strong interpersonal skills. I work efficiently both as an individual contributor as well as along with a team. I seek new challenges and try to think out-of-the-box while looking for creative solutions to a given problem
+
+            “I should be hired for this role because of my relevant skills, experience, and passion for the industry. I've researched the company and can add value to its growth. My positive attitude, work ethics, and long-term goals align with the job requirements, making me a committed and valuable asset to the company.”
+        </p>
+        <a href="#about"><button class="btn">about me <i class="fas fa-user"></i></button></a>
+
+    </section>
+
+    <section class="about" id="about">
+        <h1 class="heading"> <span>about</span> Me</h1>
+
+        <div class="row">
+            <div class="info">
+                <h3> <span> name : </span> Vasundhara</h3>
+                <h3> <span> age: </span> 22</h3>
+                <h3> <span> qualification : </span> Msc.cs</h3>
+                <h3> <span> post : </span> Front end developer</h3>
+                <h3> <span> language : </span> english</h3>
+                <a href="https://docs.google.com/document/d/1z9Evtv0cBCtL_sD8m8iDI71L6fXlCgNZ/edit?usp=sharing&ouid=113015621858400662791&rtpof=true&sd=true" ><button class="btn"> download CV <i class="fas fa-download"></i></button></a>
+            </div>
+
+            <div class="counter">
+               <div class="box">
+                <span>2+</span>
+                <h3>years of experience</h3>
+               </div>
+
+               <div class="box">
+                <span>100+</span>
+                <h3>project completed</h3>
+               </div>
+
+               <div class="box">
+                <span>500+</span>
+                <h3>happy clients</h3>
+               </div>
+
+               <div class="box">
+                <span>12+</span>
+                <h3>awards won</h3>
+               </div>
+
+            </div>
+
+        </div>
+
+
+    </section>
+
+    <section class="education" id="education">
+    <h1 class="heading"> My <span>education</span> </h1>
+
+    <div class="box-container">
+
+        <div class="box">
+            <i class="fas fa-graduation-cap"></i>
+            <span>2016</span>
+            <h3>front end development</h3>
+            <p>Collaborated with UX designers to implement user-friendly interfaces that improved user engagement & conversion rates and drove millions of additional revenue.</p>
+
+        </div>
+
+        <div class="box">
+            <i class="fas fa-graduation-cap"></i>
+            <span>2017</span>
+            <h3>front end development</h3>
+            <p>Contributed to the development of 20+ websites,reduced page load time on 10 client websites by 30% through a number of optimization techniques. Became the company expert on load time, web vitals</p>
+            
+        </div>
+
+        <div class="box">
+            <i class="fas fa-graduation-cap"></i>
+            <span>2018</span>
+            <h3>front end development</h3>
+            <p>Worked on 22 web development projects, improved website accessibility following WCAG guidelines ,received 'Rising Star' award for outstanding performance</p>
+            
+        </div>
+
+        <div class="box">
+            <i class="fas fa-graduation-cap"></i>
+            <span>2019</span>
+            <h3>front end development</h3>
+            <p>Collaborated with back-end developers to ensure seamless integration of front-end and back-end functionalities.
+                Conducted code reviews and identified areas for optimization and improvement.
+                Managed version control using Git and tracked progress using Jira.</p>
+            
+        </div>
+
+        <div class="box">
+            <i class="fas fa-graduation-cap"></i>
+            <span>2020</span>
+            <h3>front end development</h3>
+            <p>Collaborated with designers to ensure consistent and visually appealing designs across platforms.
+                Conducted user testing and identified areas for improvement in site functionality and user experience.
+                Managed site updates and maintenance tasks.</p>
+            
+        </div>
+
+        <div class="box">
+            <i class="fas fa-graduation-cap"></i>
+            <span>2021</span>
+            <h3>front end development</h3>
+            <p>Built and maintained multiple websites using HTML, CSS, and JavaScript,Developed and optimized site load times and mobile responsiveness,Collaborated with UX designers to create intuitive and user-friendly interfaces.</p>
+            
+        </div>
+    </div>
+
+    </section>
+
+    <section class="contact" id="contact">
+        <h1 class="heading">  <span> contact</span> me</h1>
+
+        <div class="row">
+            <div class="content">
+                <h3 class="title">contact info</h3>
+                <div class="info">
+                    <h3> <i class="fas fa-envelope"></i> vasundharamuruga05@gmail.com</h3>
+                    <h3> <i class="fas fa-phone"></i> +123-65787-890</h3>
+                    <h3> <i class="fas fa-phone"></i> +111-54698-888</h3>
+                    <h3> <i class="fas fa-map-marker-alt"></i> kumbakonam,Tamil Nadu-612001.</h3>
+                </div>
+            </div>
+            <form action="">
+                <input type="text" placeholder="name" class="box">
+                <input type="email" placeholder="email" class="box">
+                <input type="text" placeholder="project" class="box">
+                <textarea name="" id="" cols="30" rows="10" class="box message" placeholder="message"></textarea>
+                <button type="submit"> send <i class="fas fa-paper-plane"></i></button>
+
+            </form>
+        </div>
+    </section>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+     <script src="script.js"></script>
+     <footer>
+        <p>&copy; 2023 VASUNDHARA</p>
+    </footer>
+    <script>
+$(document).ready(function(){
+ $('#menu').click(function(){
+ $(this).toggleClass('fa-times');
+ $('header').toggleClass('toggle');
+});
+
+$(Window).on('scroll load',function(){
+
+    $('#menu').removeClass('fa-times');
+    $('header').removeClass('toggle');
+
+
+});
+
+});
+    </script>
+</body>
+</html>
